@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+	<script type="text/javascript">
+  var arr = [1,2,3,4,5,6,7,8], length = arr.length;
+  // function demo(arr,length){
+  //   var left = 0;
+  //   var right = length-1
+  //   while (left < right) {
+  //     var temp = arr[left]
+  //     arr[left] = arr[right]
+  //     arr[right] = temp
+  //     left++
+  //     right--;
+  //   }
+  //   alert(arr)
+  // }
+  // demo(arr,length)
+
+ // function digui(){
+ //  for (var i = 0; i < 100; i++) {
+ //     console.log(fib(i))
+ //  }
+ // }
+ //   function fib(n){
+ //    if(n < 2){
+ //       return n
+ //     }else{
+ //        return fib(n-1)+fib(n-2);       
+ //     }
+ //    }
+ // digui()
+  
+function reverse_recursive(head){
+	
+	if(head == '' ||  head.next == undefined){
+		return head
+	}else{
+		var second = head.next;
+		var new_head = reverse_recursive(second)
+		second.next = head ;
+		head.next = undefined	
+		return new_head
+	}
+}
+function reverse(head){
+  if(head == "" || head.next == undefined)
+    return head;
+  var p = head.next;
+  var p_previous = head;
+  head.next = undefined;
+  while(p != undefined){
+    p_next = p.next;
+    p.next = p_previous;
+    p_previous = p;
+    p = p_next;
+  }
+  return p_previous;
+}
+
+ function reverse_recursive_demo(){
+ 	var head  ;
+ 	for (var i =11; i >10; i++) {
+ 		var new_node = new Object();
+ 			new_node.payload = i*10;
+ 			new_node.next=	head;
+ 			head  = new_node;
+ 		console.log(head,i)
+ 	}
+ 	 head = reverse(head);
+ 	 iterator  = head;	
+ 	 while(iterator){
+     console.log(iterator.payload) 
+     iterator = iterator.next;
+  }	
+   return 0;
+ }
+ reverse_recursive_demo()
+</script>
+</script>
+</html>
